@@ -2,7 +2,7 @@ import java.util.*;
 public class Quick {
   private Random randgen;
   public static int partition(int[] data, int start, int end) {
-    int index = start + randgen.nextInt(end - start); //Index of pivotal value.
+    int index = start + randgen.nextInt(end - start + 1); //Index of pivotal value.
     int value = data[index]; //Value of pivotal element.
     data[index] = data[start]; //Switch start and pivot.
     data[start] = value;

@@ -21,8 +21,14 @@ public class Quick {
         data[start] = hold;
         start = start + 1; //Check the next value.
         index = index + 1; //The value at the beginning is also sorted.
-      } else if (data[start] == value) {
-        start = start + 1; //Leave it.
+      } else if (data[start] == value) { //Duplicate.
+        if (random.nextInt(2) == 0) { //50% chance of moving to the end.
+          int hold = data[end];
+          data[end] = data[start];
+          data[start] = hold;
+        } else {
+
+        }
       }
     }
     return index;

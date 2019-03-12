@@ -27,5 +27,17 @@ public class Quick {
       data[index] = data[start - 1];
       index = start;
     }
+    return index;
+  }
+  public static int quick|select(int[] data, int k) {
+    int index = partition(data, 0, data.length - 1); //Start off by checking the whole list.
+    while (k != index) {
+      if (k < index) { //k is smaller than the randomly chosen index.
+        index = partition(data, 0, index); //We know k has to be between 0 and the index.
+      } else {
+        index = partition(data, index, data.length - 1); //We know k has to be between the index and the end of the array.
+      }
+    }
+    return data[index];
   }
 }

@@ -2,7 +2,14 @@ import java.util.*;
 public class Quick {
   public static int partition(int[] data, int start, int end) {
     Random randgen = new Random();
-    int index = start + randgen.nextInt(end - start + 1); //Index of pivotal value.
+    if (data[start] >= data[(start + end) / 2] && data[start] <= data[end] || data[start] <= data[(start - end) / 2] && data[start] >= data[end]]) { //Choosing the median of the start, middle, and end values to be the pivotal value.
+      int index = start;
+    }
+    if (data[(start + end) / 2] >= data[(start) / 2] && data[(start + end) / 2] <= data[end] || data[(start + end) / 2] <= data[(start) / 2] && data[(start + end) / 2] >= data[end]]) {
+      int index = (start + end) / 2;
+    } else {
+      int index = end;
+    }
     int temp = data[start]; //Switch start and pivot.
     data[start] = data[index];
     data[index] = temp;
@@ -22,7 +29,7 @@ public class Quick {
         start = start + 1; //Check the next value.
         index = index + 1; //The value at the beginning is also sorted.
       } else if (data[start] == value) { //Duplicate.
-        if (random.nextInt(2) == 0) { //50% chance of moving to the end.
+        if (randgen.nextInt(2) == 0) { //50% chance of moving to the end.
           int hold = data[end];
           data[end] = data[start];
           data[start] = hold;

@@ -33,8 +33,13 @@ public class Quick {
           int hold = data[end];
           data[end] = data[start];
           data[start] = hold;
-        } else {
-
+          end = end - 1;
+        } else { //50% chance of moving to the beginning.
+          int hold = data[index];
+          data[index] = data[start];
+          data[start] = hold;
+          start = start + 1;
+          index = index + 1;
         }
       }
     }

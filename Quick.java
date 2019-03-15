@@ -60,4 +60,12 @@ public class Quick {
   public static void quicksort(int[] data) {
     quicksortH(data, 0, data.length - 1);
   }
+  private static void quicksortH(int[] data, int lo, int hi) {
+    if (lo == hi) { //Done looking through the range.
+      return; //Stop the function by returning nothing.
+    }
+    int index = partition(data, lo, hi); //Get the pivot index.
+    quicksortH(data, lo, index); //Deals with the first part of the array.
+    quicksortH(data, index + 1, hi); //Deals with the other part.
+  }
 }

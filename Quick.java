@@ -57,4 +57,7 @@ public class Quick {
     }
     return data[index];
   }
+  public static void quicksort(int[] data) {
+    quicksortH(data, 0, data.length - 1);
+  }
 }

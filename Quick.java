@@ -6,10 +6,10 @@ public class Quick {
     if (data[start] >= data[(start + end) / 2] && data[start] <= data[end] || data[start] <= data[(start + end) / 2] && data[start] >= data[end]) { //Choosing the median of the start, middle, and end values to be the pivotal value.
       index = start;
     }
-    if (data[(start + end) / 2] >= data[(start) / 2] && data[(start + end) / 2] <= data[end] || data[(start + end) / 2] <= data[start] && data[(start + end) / 2] >= data[end]) {
+    if (data[(start + end) / 2] >= data[start] && data[(start + end) / 2] <= data[end] || data[(start + end) / 2] <= data[start] && data[(start + end) / 2] >= data[end]) {
       index = (start + end) / 2;
     } else {
-      index = end;
+      index = end - 1;
     }
     int temp = data[start]; //Switch start and pivot.
     data[start] = data[index];
@@ -32,7 +32,7 @@ public class Quick {
       } else if (data[start] == value) { //Duplicate.
         if (randgen.nextInt(2) == 0) { //50% chance of moving to the end.
           int hold = data[end];
-          data[end] = data[start];
+          data[end ] = data[start];
           data[start] = hold;
           end = end - 1;
         } else { //50% chance of moving to the beginning.
@@ -61,7 +61,7 @@ public class Quick {
     quicksortH(data, 0, data.length - 1);
   }
   private static void quicksortH(int[] data, int lo, int hi) {
-    if (lo == hi) { //Done looking through the range.
+    if (lo >= hi) { //Done looking through the range.
       return; //Stop the function by returning nothing.
     }
     int index = partition(data, lo, hi); //Get the pivot index.

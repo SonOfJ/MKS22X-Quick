@@ -47,6 +47,27 @@ public class Quick {
     return index;
   }
   private static int[] partitionDutch(int[] data, int lo, int hi) {
+    int lt = lo; //Index for lower bound.
+    int gt = hi; //Index for higher bound.
+    int i = index + 1; //Index that will be used to go through the region that must be examined.
+    while (i <= gt) { //While i has not surpassed the upper bound yet.
+      if (data[i] == data[lt]) {
+        i = i + 1; //Bounds don't change because there is a duplicate.
+      } else if (data[i] < data[lt]) { //Smaller than the pivotal value.
+        int hold = data[lt]; //Switching time.
+        data[lt] = data[i];
+        data[i] = data[hold];
+        lt = lt + 1; //Lower bound obviously has to move up.
+        i = i + 1;
+      } else { //Bigger than the pivotal value.
+        int hold = data[gt]; //Switching time.
+        data[gt] = data[i];
+        data[i] = data[hold];
+        gt = gt - 1; //Upper bound must move down.
+      }
+    }
+    int[] ans = new int{}
+    return new int[]
   }
   public static int quickselect(int[] data, int k) {
     int index = partition(data, 0, data.length - 1); //Start off by checking the whole list.

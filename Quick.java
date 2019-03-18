@@ -46,6 +46,8 @@ public class Quick {
     }
     return index;
   }
+  private static int[] partitionDutch(int[] data, int lo, int hi) {
+  }
   public static int quickselect(int[] data, int k) {
     int index = partition(data, 0, data.length - 1); //Start off by checking the whole list.
     while (k - 1 != index) {

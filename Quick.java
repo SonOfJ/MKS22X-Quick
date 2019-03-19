@@ -66,8 +66,8 @@ public class Quick {
         gt = gt - 1; //Upper bound must move down.
       }
     }
-    int[] ans = new int{}
-    return new int[]
+    int[] ans = new int[]{lt, gt};
+    return ans;
   }
   public static int quickselect(int[] data, int k) {
     int index = partition(data, 0, data.length - 1); //Start off by checking the whole list.

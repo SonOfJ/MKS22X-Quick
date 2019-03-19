@@ -50,19 +50,21 @@ public class Quick {
     int lt = lo; //Index for lower bound.
     int gt = hi; //Index for higher bound.
     int i = lt + 1; //Index that will be used to go through the region that must be examined.
+    int index = lo;
     while (i <= gt) { //While i has not surpassed the upper bound yet.
-      if (data[i] == data[lt]) {
+      if (data[i] == data[index]) {
         i = i + 1; //Bounds don't change because there is a duplicate.
-      } else if (data[i] < data[lt]) { //Smaller than the pivotal value.
+      } else if (data[i] < data[index]) { //Smaller than the pivotal value.
         int hold = data[lt]; //Switching time.
         data[lt] = data[i];
-        data[i] = data[hold];
+        data[i] = hold;
         lt = lt + 1; //Lower bound obviously has to move up.
         i = i + 1;
+        index = index + 1;
       } else { //Bigger than the pivotal value.
         int hold = data[gt]; //Switching time.
         data[gt] = data[i];
-        data[i] = data[hold];
+        data[i] = hold;
         gt = gt - 1; //Upper bound must move down.
       }
     }

@@ -87,8 +87,8 @@ public class Quick {
     if (lo >= hi) { //Done looking through the range.
       return; //Stop the function by returning nothing.
     }
-    int index = partition(data, lo, hi); //Get the pivot index.
-    quicksortH(data, lo, index); //Deals with the first part of the array.
-    quicksortH(data, index + 1, hi); //Deals with the other part.
+    int[] dutch = partitionDutch(data, lo, hi);
+    quicksortH(data, lo, dutch[0] - 1); //Deals with the first part of the array, which goes from the start to lt - 1.
+    quicksortH(data, dutch[1] + 1, hi); //Deals with the other part, which goes from gt + 1 to the end.
   }
 }

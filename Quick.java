@@ -49,7 +49,7 @@ public class Quick {
   private static int[] partitionDutch(int[] data, int lo, int hi) {
     int lt = lo; //Index for lower bound.
     int gt = hi; //Index for higher bound.
-    int i = index + 1; //Index that will be used to go through the region that must be examined.
+    int i = lt + 1; //Index that will be used to go through the region that must be examined.
     while (i <= gt) { //While i has not surpassed the upper bound yet.
       if (data[i] == data[lt]) {
         i = i + 1; //Bounds don't change because there is a duplicate.

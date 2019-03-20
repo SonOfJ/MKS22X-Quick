@@ -102,7 +102,8 @@ public class Quick {
     }
   }
   private static void quicksortH(int[] data, int lo, int hi) {
-    if (lo >= hi) { //Done looking through the range.
+    if (hi - lo < 44) { //Done looking through the range.
+      insertionSort(data, lo, hi);
       return; //Stop the function by returning nothing.
     }
     int[] dutch = partitionDutch(data, lo, hi);

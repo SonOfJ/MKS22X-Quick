@@ -85,6 +85,19 @@ public class Quick {
   public static void quicksort(int[] data) {
     quicksortH(data, 0, data.length - 1);
   }
+  private static void insertionSort(int[] data, int lo, int hi) {
+    if (data.length != 0) {
+      for (int i = 1; i < hi - lo + 1; i = i + 1) { //The first element is already sorted
+        int value = data[lo + i];
+        int index = i; //Allows for the manipulation of the index without affecting i
+        while (index != 0 && data[lo + index - 1] > value) { //index cannot be zero and the current element is smaller
+          data[lo + index] = data[lo + index - 1]; //Shifting
+          index = index - 1; //Continue the loop towards the left
+        }
+        data[lo + index] = value; //Place the element at i at the location of the index
+      }
+    }
+  }
   private static void quicksortH(int[] data, int lo, int hi) {
     if (lo >= hi) { //Done looking through the range.
       return; //Stop the function by returning nothing.

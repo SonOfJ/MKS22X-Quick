@@ -85,6 +85,9 @@ public class Quick {
   public static void quicksort(int[] data) {
     quicksortH(data, 0, data.length - 1);
   }
+  public static void insertionSort(int[] data) {
+    insertionSort(data, 0, data.length - 1);
+  }
   private static void insertionSort(int[] data, int lo, int hi) {
     if (data.length != 0) {
       for (int i = 1; i < hi - lo + 1; i = i + 1) { //The first element is already sorted
@@ -99,7 +102,7 @@ public class Quick {
     }
   }
   private static void quicksortH(int[] data, int lo, int hi) {
-    if (hi - lo < 50) { //Done looking through the range.
+    if (lo >= hi) { //Done looking through the range.
       return; //Stop the function by returning nothing.
     }
     int[] dutch = partitionDutch(data, lo, hi);
